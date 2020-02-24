@@ -68,7 +68,7 @@ const App = () => {
           maxWidth: 600,
         }}
       >
-        <button onClick={addNewColor}>Add Random Color Box</button>
+        {/*<button onClick={addNewColor}>Add Random Color Box</button>*/}
         <DropIn data={activeColors}>
           {activeColors.map(({ background, height }) => (
             <DragItem key={background}>

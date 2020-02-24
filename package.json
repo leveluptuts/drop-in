@@ -29,7 +29,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "dropin",
+  "name": "@leveluptuts/drop-in",
   "author": "Scott Tolinski",
   "module": "dist/dropin.esm.js",
   "devDependencies": {
