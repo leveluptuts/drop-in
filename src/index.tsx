@@ -4,15 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import move from 'array-move';
 
-type ItemProps = {
-  key: string;
-  element?: string;
-};
-
-export const DragItem: React.FC<ItemProps> = ({ key, children }) => (
-  <React.Fragment key={key}>{children}</React.Fragment>
-);
-
 type DropInProps = {
   data: any[];
   children: any[];
@@ -146,6 +137,14 @@ export interface Position {
 
 // Prevent rapid reverse swapping
 const buffer = 5;
+
+type ItemProps = {
+  key: string;
+};
+
+export const DragItem: React.FC<ItemProps> = ({ key, children }) => (
+  <React.Fragment key={key}>{children}</React.Fragment>
+);
 
 export const findIndex = (
   i: number,

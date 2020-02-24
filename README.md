@@ -8,7 +8,7 @@
 
 ## Demo
 
-https://drop-in.leveluptutorials.com/
+https://levelup-drop-in.netlify.com/
 
 ## Install
 
@@ -18,116 +18,42 @@ yarn add @leveluptuts/drop-in
 
 ## Usage
 
-### A basic form
+### The Syntax
 
 ```jsx
-import { Form, Field } from '@leveluptuts/drop-in';
-<Form
-  onSubmit={data => {
-    console.log(data);
-  }}
->
-  <Field>Name</Field>
-  <Field type="number">Number</Field>
-  <Field type="select" options={options} />
-</Form>;
-```
+import { DropIn, DragItem } from '@leveluptuts/drop-in';
 
-### A slightly less basic form
-
-```jsx
-import { Form, Field } from '@leveluptuts/fresh';
-<Form onSubmit={onSubmit}>
-  <Field>Name</Field>
-  <Field type="email">Email</Field>
-  <Field type="password">Password</Field>
-  <Field type="tags">Tags</Field>
-  <Field type="number">Number</Field>
-  <Field required type="select" options={options}>
-    Type
-  </Field>
-  <Field type="textarea">Text Area</Field>
-  <Field type="markdown">Markdown</Field>
-  <Field type="toggle">Markdown</Field>
-</Form>;
-```
-
-### How about one with default values?
-
-```jsx
-import { Form, Field } from '@leveluptuts/fresh'
-
-const defaultValues = {
-  name: 'Brooklyn Boo',
-  email: 'scott@test.com',
-}
-
-<Form onSubmit={onSubmit} defaultValues={defaultValues}>
-  <Field>Name</Field>
-  <Field type="email">Email</Field>
-  <Field>Two Words</Field>
-</Form>
+<DropIn data={data}>
+  {activeColors.map(({ background, height }) => (
+    <DragItem key={background}>
+      <Square background={background} height={height} />
+    </DragItem>
+  ))}
+</DropIn>;
 ```
 
 ## API
 
-### Form
+### DropIn
 
-The wrapper around your fields.
+The parent of an array of components
 
-| Prop          | Type    | Default        | Description                                                                                                           |
-| ------------- | ------- | -------------- | --------------------------------------------------------------------------------------------------------------------- |
-| onSubmit      | func    | (data) => data | Can be any of the following types. text (default), email, number, select, password, textarea, tags. (See types below) |
-| cancelButton  | boolean | true           | if cancel is shown                                                                                                    |
-| disabled      | boolean | false          | if the form is disabled                                                                                               |
-| cancelAction  | func    | () => null     | A function that will run on cancel button click                                                                       |
-| submitText    | string  | 'Submit'       | Custom text for submit button                                                                                         |
-| cancelText    | string  | 'Cancel'       | Custom text for cancel button                                                                                         |
-| defaultValues | object  | {}             | An object with correlating default values                                                                             |
+| Prop     | Type              | Default        | Description                                            |
+| -------- | ----------------- | -------------- | ------------------------------------------------------ |
+| children | ArrayOfComponents |                | An array of React Components                           |
+| data     | ArrayOfData       |                | The data that powers the children                      |
+| onDrop   | func              | (data) => data | OPTIONAL \_ function that runs on drop, sends new data |
 
-### Field
+### DragItem
 
-#### Common API - The props that are common among all fields
+The item to be moved
 
-The common API is shared among all <Field /> elements. Type specific fields are found below.
-
-| Prop         | Type                | Default | Description                                                                                                                               |
-| ------------ | ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| type         | string              | 'text'  | Can be any of the following types: text (default), email, number, select, password, textarea, tags, markdown, toggle. (See types below)   |
-| name         | string              | ''      | The name of the field data to be returned. If no name prop is given, the Field element's text will be converted to camelCase and be used. |
-| required     | boolean             | false   | If a field is required                                                                                                                    |
-| label        | boolean             | true    | If a field has a label                                                                                                                    |
-| defaultValue | string/number/array | null    | The initial value for each field                                                                                                          |
-| tooltip      | string              | ''      | Shows an info icon next to the label with a tooltip message on hover                                                                      |
-| className    | string              | ''      | Custom className can be added to a field.                                                                                                 |
-
-#### type - text & textarea
-
-| Prop        | Type   | Default | Description      |
-| ----------- | ------ | ------- | ---------------- |
-| placeholder | string | ''      | placeholder text |
-
-#### type - password
-
-| Prop     | Type    | Default | Description                                                |
-| -------- | ------- | ------- | ---------------------------------------------------------- |
-| strength | boolean | true    | Shows or hides the password strength meter below the field |
-
-#### type - select
-
-| Prop    | Type             | Default | Description                                                        |
-| ------- | ---------------- | ------- | ------------------------------------------------------------------ |
-| options | array of strings | []      | The text and values of a select list. \*Object support coming soon |
-
-### Errors
-
-Not complete / in use yet, just standard html 5 validation
+| Prop     | Type                 | Default | Description                              |
+| -------- | -------------------- | ------- | ---------------------------------------- |
+| key      | string               |         | A unique key                             |
+| children | Component or Element |         | The thing inside the thing you're moving |
 
 ## FAQ
-
-### Can I customize this component in my own way?
-
-This library makes some calls to keep the API easy to use and maintain. Using it with another library that tries to bring it's own inputs in isn't really needed at this time.
 
 ## Contributing
 
@@ -142,11 +68,7 @@ This library makes some calls to keep the API easy to use and maintain. Using it
 
 ## Prior Art and Inspirations
 
-I am huge fan of simple, easy APIs that take care of 90% of jobs easily.
-One form library I really enjoyed was https://kozea.github.io/formol/ .
-The API was simple in all of the ways that I love, but there were some aspects of the library that just didn't fit for us and our workflow.
-I wanted to make something that was more simple, but just as easy but with more configuration options.
-I'm also inspired by AutoForm for Meteor https://github.com/aldeed/meteor-autoform for future generation features.
+Lots of this code has been adopted from https://codesandbox.io/s/framer-motion-drag-to-reorder-r4qme
 
 ## License
 
