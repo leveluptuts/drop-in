@@ -70,16 +70,9 @@ const App = () => {
       >
         <button onClick={addNewColor}>Add Random Color Box</button>
         <DropIn data={activeColors}>
-          {activeColors.map(color => (
-            <DragItem key={color.background}>
-              <div
-                style={{
-                  background: `var(--${color.background})`,
-                  height: color.height,
-                  borderRadius: 15,
-                  marginBottom: 10,
-                }}
-              />
+          {activeColors.map(({ background, height }) => (
+            <DragItem key={background}>
+              <Square background={background} height={height} />
             </DragItem>
           ))}
         </DropIn>
@@ -87,5 +80,16 @@ const App = () => {
     </div>
   );
 };
+
+const Square = ({ background, height }) => (
+  <div
+    style={{
+      background: `var(--${background})`,
+      height,
+      borderRadius: 15,
+      marginBottom: 10,
+    }}
+  />
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
