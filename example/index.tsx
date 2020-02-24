@@ -76,6 +76,24 @@ const App = () => {
             </DragItem>
           ))}
         </DropIn>
+        <iframe
+          src="https://codesandbox.io/embed/brave-einstein-yi1wb?fontsize=14&hidenavigation=1&theme=dark"
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 0,
+            borderRadius: 4,
+            overflow: 'hidden',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+          }}
+          title="brave-einstein-yi1wb"
+          allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+          sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+        ></iframe>
       </main>
     </div>
   );
