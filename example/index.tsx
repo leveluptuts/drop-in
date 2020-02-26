@@ -22,6 +22,10 @@ const COLORS = [
     background: 'purp',
     height: 40,
   },
+  {
+    background: 'black',
+    height: 80,
+  },
 ];
 
 const POSSIBLE_HEIGHTS = [30, 60, 90, 140, 100, 60];
@@ -42,14 +46,7 @@ const App = () => {
     });
   };
   return (
-    <div
-      style={{
-        background: `url(${clouds.default})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        minHeight: '100vh',
-      }}
-    >
+    <div className="wrapper" style={{ background: `url(${clouds.default})` }}>
       <header>
         <h1>
           Drop
@@ -57,55 +54,101 @@ const App = () => {
           In
         </h1>
       </header>
-      <main
-        style={{
-          padding: '40px',
-          background: 'white',
-          boxShadow: '4px 4px 15px rgba(0, 0, 0, 0.2)',
-          borderRadius: '35px',
-          margin: '0 auto',
-          width: '95%',
-          maxWidth: 600,
-        }}
-      >
-        {/*<button onClick={addNewColor}>Add Random Color Box</button>*/}
-        <DropIn data={activeColors}>
-          {activeColors.map(({ background, height }) => (
-            <DragItem key={background}>
-              <Square background={background} height={height} />
-            </DragItem>
-          ))}
-        </DropIn>
-        <iframe
-          src="https://codesandbox.io/embed/brave-einstein-yi1wb?fontsize=14&hidenavigation=1&theme=dark"
-          style={{
-            width: '100%',
-            height: '100%',
-            border: 0,
-            borderRadius: 4,
-            overflow: 'hidden',
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-          }}
-          title="brave-einstein-yi1wb"
-          allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-          sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-        ></iframe>
+      <main>
+        <div className="card">
+          <DropIn data={activeColors}>
+            {activeColors.map(({ background, height }) => (
+              <DragItem key={background}>
+                <Square background={background} height={height} />
+              </DragItem>
+            ))}
+          </DropIn>
+        </div>
+
+        <div className="card">
+          <DropIn
+            data={activeColors}
+            whileHover={{
+              scale: 1.02,
+              boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
+            }}
+            whileTap={{
+              scale: 1.04,
+              boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
+            }}
+          >
+            {activeColors.map(({ background, height }) => (
+              <DragItem key={background} style={{ borderRadius: 15 }}>
+                <Square background={background} height={height} />
+              </DragItem>
+            ))}
+          </DropIn>
+        </div>
+        <div className="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Bg</th>
+                <th>Height</th>
+              </tr>
+            </thead>
+            <tbody>
+              <DropIn
+                data={activeColors}
+                whileHover={{
+                  scale: 1.02,
+                  boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
+                }}
+                whileTap={{
+                  scale: 1.04,
+                  boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
+                }}
+              >
+                {activeColors.map(({ background, height }) => (
+                  <DragItem
+                    element="tr"
+                    key={background}
+                    style={{ borderRadius: 15, overflow: 'hidden' }}
+                  >
+                    <td>{background}</td>
+                    <td>{height}</td>
+                  </DragItem>
+                ))}
+              </DropIn>
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
   );
 };
 
+// <iframe
+// src="https://codesandbox.io/embed/brave-einstein-yi1wb?fontsize=14&hidenavigation=1&theme=dark"
+// style={{
+// 	width: '100%',
+// 	height: '100%',
+// 	border: 0,
+// 	borderRadius: 4,
+// 	overflow: 'hidden',
+// 	position: 'fixed',
+// 	top: 0,
+// 	left: 0,
+// 	bottom: 0,
+// 	right: 0,
+// }}
+// title="brave-einstein-yi1wb"
+// allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+// sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+// ></iframe>
+
 const Square = ({ background, height }) => (
   <div
     style={{
-      background: `var(--${background})`,
       height,
-      borderRadius: 15,
       marginBottom: 10,
+      background: `var(--${background})`,
+      borderRadius: 15,
     }}
   />
 );

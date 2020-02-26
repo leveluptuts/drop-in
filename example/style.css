@@ -171,5 +171,118 @@ pre {
   --blue: #0363b9;
   --black: #162f2b;
   --green: #a3ffc1;
-  --teal: white;
+  --teal: #82d8d8;
+
+  --pink: #cf256d;
+  --black: #333;
+  --black-20: #4f4f4f;
+  --black-40: #828282;
+  --black-60: #bdbdbd;
+  --white-60: #e0e0e0;
+  --white-40: #f2f2f2;
+  --white-20: #f5f4f6;
+  --white: #fff;
+
+  --bgColor: var(--purp);
+  --lineColor: var(--white-60);
+  --zebraBg: var(--white-40);
+
+  --sheetBg: var(--white);
+  --sheetHover: var(--white-20);
+  --sheetTextColor: var(--black);
+  --sheetShadow: 0px 0px 22px rgba(0, 0, 0, 0.4),
+    0px 0px 4px rgba(0, 0, 0, 0.25);
+  --pinnedColor: var(--darkPurp);
+  --cardBg: var(--white);
+
+  --cardRadius: 15px;
+  --buttonRadius: 15px;
+
+  /* Font Sizes */
+  --baseFontSize: 1rem;
+  --baseNavSize: 0.64rem;
+  --smallFontSize: 0.8rem;
+  --smallestFontSize: 0.512rem;
+
+  --xtra-big-ass-heading: 3.052rem;
+  --xtra-heading: 2.441rem;
+  --heading-one: 1.953rem;
+  --heading-two: 1.563rem;
+  --heading-three: 1.25rem;
+  --heading-four: var(--baseFontSize);
+  --heading-five: var(--smallFontSize);
+  --heading-six: 0.64rem;
+  --heading-seven: var(--smallestFontSize);
+
+  /* Fonts */
+  --headingFont: 'Poppins', sans-serif;
+  --bodyFont: 'Raleway', sans-serif;
+
+  /* Z-Index */
+  --headerLevel: 10;
+  --highestLevel: 100;
+
+  /* Elevation */
+  --elevation-0: inset 0 7px 9px -7px rgba(0, 0, 0, 0.7);
+  --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --elevation-3: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+  --elevation-4: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  --elevation-5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+  /* Margin */
+  --margin: 2.75rem 0 1rem;
+}
+
+.wrapper {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.card {
+  padding: 40px;
+  background: white;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 35px;
+  margin: 0 auto 2rem;
+  width: 95%;
+  max-width: 600px;
+}
+
+table {
+  margin: var(--margin);
+  border: solid 1px var(--lineColor);
+  font-family: var(--bodyFont);
+  border-spacing: 0;
+  border-radius: 6px;
+}
+
+td,
+th {
+  padding: 10px;
+  font-weight: normal;
+  text-align: left;
+}
+
+thead tr {
+  background-color: var(--zebraBg);
+  box-shadow: inset 0 -1px var(--lineColor);
+}
+
+th + th {
+  border-left: solid 1px var(--lineColor);
+}
+
+tr {
+  box-shadow: inset 0 -1px var(--lineColor);
+  transition: 0.3s ease background;
+}
+tbody tr:last-child {
+  box-shadow: none;
+}
+
+tr:hover {
+  background-color: var(--zebraBg);
 }
