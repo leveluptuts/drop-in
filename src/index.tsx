@@ -49,7 +49,6 @@ export const DropIn = ({
       const newNewData = move(newData, i, targetIndex);
       setNewChildren((prevState: any) => move(prevState, i, targetIndex));
       setNewData(newNewData);
-      onDrop(newNewData);
     }
   };
 
@@ -64,6 +63,7 @@ export const DropIn = ({
       moveItem={moveItem}
       whileHover={whileHover}
       whileTap={whileTap}
+      onDrop={() => onDrop(newData)}
     >
       {child}
     </Item>

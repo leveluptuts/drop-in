@@ -92,6 +92,9 @@ const App = () => {
                 scale: 1.04,
                 boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
               }}
+              onDrop={newData => {
+                console.log(newData);
+              }}
             >
               {activeColors.map(({ background, height }) => (
                 <DragItem key={background} style={{ borderRadius: 15 }}>

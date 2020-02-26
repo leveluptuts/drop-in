@@ -13,6 +13,7 @@ type Props = {
   i: number;
   moveItem: any;
   setPosition: (i: number, offset: Position) => Position;
+  onDrop: () => void;
   element?: string;
   whileHover: object;
   whileTap: object;
@@ -30,6 +31,7 @@ export const Item: React.FC<Props> = ({
   whileTap,
   style,
   dragElastic,
+  onDrop,
 }) => {
   const [isDragging, setDragging] = useState(false);
 
@@ -70,6 +72,7 @@ export const Item: React.FC<Props> = ({
       style={style}
       onDragEnd={() => {
         setDragging(false);
+        onDrop();
       }}
       onDrag={(_, { point }) => moveItem(i, point.y)}
       positionTransition={({ delta }) => {
