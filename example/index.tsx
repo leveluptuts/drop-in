@@ -105,11 +105,7 @@ const App = () => {
                 }}
               >
                 {activeColors.map(({ background, height }) => (
-                  <DragItem
-                    element="tr"
-                    key={background}
-                    style={{ borderRadius: 15, overflow: 'hidden' }}
-                  >
+                  <DragItem element="tr" key={background}>
                     <td>{background}</td>
                     <td>{height}</td>
                   </DragItem>
