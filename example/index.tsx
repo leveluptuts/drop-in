@@ -55,64 +55,111 @@ const App = () => {
         </h1>
       </header>
       <main>
-        <div className="card">
-          <DropIn data={activeColors}>
-            {activeColors.map(({ background, height }) => (
-              <DragItem key={background}>
-                <Square background={background} height={height} />
-              </DragItem>
-            ))}
-          </DropIn>
-        </div>
-
-        <div className="card">
-          <DropIn
-            data={activeColors}
-            whileHover={{
-              scale: 1.02,
-              boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
+        <div style={{ display: 'flex', marginBottom: '2rem' }}>
+          <div className="card">
+            <DropIn data={activeColors}>
+              {activeColors.map(({ background, height }) => (
+                <DragItem key={background}>
+                  <Square background={background} height={height} />
+                </DragItem>
+              ))}
+            </DropIn>
+          </div>
+          <iframe
+            src="https://codesandbox.io/embed/brave-einstein-yi1wb?autoresize=1&fontsize=14&hidenavigation=1&theme=dark&view=editor"
+            style={{
+              minWidth: 600,
+              margin: '0 auto',
+              height: 500,
+              border: 0,
+              borderRadius: 35,
+              overflow: 'hidden',
             }}
-            whileTap={{
-              scale: 1.04,
-              boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
-            }}
-          >
-            {activeColors.map(({ background, height }) => (
-              <DragItem key={background} style={{ borderRadius: 15 }}>
-                <Square background={background} height={height} />
-              </DragItem>
-            ))}
-          </DropIn>
+            title="brave-einstein-yi1wb"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+          ></iframe>
         </div>
-        <div className="card">
-          <table>
-            <thead>
-              <tr>
-                <th>Bg</th>
-                <th>Height</th>
-              </tr>
-            </thead>
-            <tbody>
-              <DropIn
-                data={activeColors}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
-                }}
-                whileTap={{
-                  scale: 1.04,
-                  boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
-                }}
-              >
-                {activeColors.map(({ background, height }) => (
-                  <DragItem element="tr" key={background}>
-                    <td>{background}</td>
-                    <td>{height}</td>
-                  </DragItem>
-                ))}
-              </DropIn>
-            </tbody>
-          </table>
+        <div style={{ display: 'flex', marginBottom: '2rem' }}>
+          <div className="card">
+            <DropIn
+              data={activeColors}
+              whileHover={{
+                scale: 1.02,
+                boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
+              }}
+              whileTap={{
+                scale: 1.04,
+                boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
+              }}
+            >
+              {activeColors.map(({ background, height }) => (
+                <DragItem key={background} style={{ borderRadius: 15 }}>
+                  <Square background={background} height={height} />
+                </DragItem>
+              ))}
+            </DropIn>
+          </div>
+          <iframe
+            src="https://codesandbox.io/embed/gifted-tesla-te4vz?fontsize=14&hidenavigation=1&theme=dark&view=editor"
+            style={{
+              minWidth: 600,
+              margin: '0 auto',
+              height: 500,
+              border: 0,
+              borderRadius: 35,
+              overflow: 'hidden',
+            }}
+            title="brave-einstein-yi1wb"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+          ></iframe>
+        </div>
+        <div style={{ display: 'flex', marginBottom: '2rem' }}>
+          <div className="card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bg</th>
+                  <th>Height</th>
+                </tr>
+              </thead>
+              <tbody>
+                <DropIn
+                  data={activeColors}
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: '6px 6px 10px rgba(0, 0, 0, 0.3)',
+                  }}
+                  whileTap={{
+                    scale: 1.04,
+                    boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.24)',
+                  }}
+                >
+                  {activeColors.map(({ background, height }) => (
+                    <DragItem element="tr" key={background}>
+                      <td>{background}</td>
+                      <td>{height}</td>
+                    </DragItem>
+                  ))}
+                </DropIn>
+              </tbody>
+            </table>
+          </div>
+          <iframe
+            src="https://codesandbox.io/embed/nostalgic-platform-np394?fontsize=14&hidenavigation=1&theme=dark&view=editor"
+            style={{
+              minWidth: 600,
+              margin: '0 auto',
+              height: 500,
+              border: 0,
+              borderRadius: 35,
+              overflow: 'hidden',
+            }}
+            title="brave-einstein-yi1wb"
+            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+          ></iframe>
         </div>
       </main>
     </div>
