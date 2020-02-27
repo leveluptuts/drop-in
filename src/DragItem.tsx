@@ -1,9 +1,12 @@
 import * as React from 'react';
 
 type ItemProps = {
-  key: string;
+  itemKey: string;
+  element?: string;
 };
 
-export const DragItem: React.FC<ItemProps> = ({ key, children }) => (
-  <React.Fragment key={key}>{children}</React.Fragment>
-);
+export const DragItem: React.FC<ItemProps> = ({
+  children,
+  itemKey,
+  element = 'div',
+}) => <React.Fragment key={itemKey}>{children}</React.Fragment>;

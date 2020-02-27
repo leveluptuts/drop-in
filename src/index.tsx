@@ -52,22 +52,26 @@ export const DropIn = ({
     }
   };
 
-  return newChildren.map((child: any, i: any) => (
-    <Item
-      dragElastic={dragElastic}
-      element={child.props?.element || 'div'}
-      style={child.props?.style || {}}
-      key={child.key}
-      i={i}
-      setPosition={setPosition}
-      moveItem={moveItem}
-      whileHover={whileHover}
-      whileTap={whileTap}
-      onDrop={() => onDrop(newData)}
-    >
-      {child}
-    </Item>
-  ));
+  return (
+    <>
+      {newChildren.map((child: any, i: any) => (
+        <Item
+          dragElastic={dragElastic}
+          element={child.props?.element || 'div'}
+          style={child.props?.style || {}}
+          key={child.key}
+          i={i}
+          setPosition={setPosition}
+          moveItem={moveItem}
+          whileHover={whileHover}
+          whileTap={whileTap}
+          onDrop={() => onDrop(newData)}
+        >
+          {child}
+        </Item>
+      ))}
+    </>
+  );
 };
 
 export * from './DragItem';

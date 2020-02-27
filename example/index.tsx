@@ -33,6 +33,7 @@ const POSSIBLE_COLORS = ['red', 'green', 'blue', 'purp', 'teal', 'black'];
 
 const App = () => {
   const [activeColors, setActiveColors] = React.useState(COLORS);
+  const [isCodeActive, setIsCodeActive] = React.useState(false);
   const addNewColor = () => {
     setActiveColors(prevColors => {
       var index = Math.floor(Math.random() * POSSIBLE_HEIGHTS.length);
@@ -59,26 +60,28 @@ const App = () => {
           <div className="card">
             <DropIn data={activeColors}>
               {activeColors.map(({ background, height }) => (
-                <DragItem key={background}>
+                <DragItem key={background} itemKey={background}>
                   <Square background={background} height={height} />
                 </DragItem>
               ))}
             </DropIn>
           </div>
-          <iframe
-            src="https://codesandbox.io/embed/brave-einstein-yi1wb?autoresize=1&fontsize=14&hidenavigation=1&theme=dark&view=editor"
-            style={{
-              minWidth: 600,
-              margin: '0 auto',
-              height: 500,
-              border: 0,
-              borderRadius: 35,
-              overflow: 'hidden',
-            }}
-            title="brave-einstein-yi1wb"
-            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-          ></iframe>
+          {isCodeActive && (
+            <iframe
+              src="https://codesandbox.io/embed/brave-einstein-yi1wb?autoresize=1&fontsize=14&hidenavigation=1&theme=dark&view=editor"
+              style={{
+                minWidth: 600,
+                margin: '0 auto',
+                height: 500,
+                border: 0,
+                borderRadius: 35,
+                overflow: 'hidden',
+              }}
+              title="brave-einstein-yi1wb"
+              allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+              sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+            ></iframe>
+          )}
         </div>
         <div style={{ display: 'flex', marginBottom: '2rem' }}>
           <div className="card">
@@ -103,20 +106,22 @@ const App = () => {
               ))}
             </DropIn>
           </div>
-          <iframe
-            src="https://codesandbox.io/embed/gifted-tesla-te4vz?fontsize=14&hidenavigation=1&theme=dark&view=editor"
-            style={{
-              minWidth: 600,
-              margin: '0 auto',
-              height: 500,
-              border: 0,
-              borderRadius: 35,
-              overflow: 'hidden',
-            }}
-            title="brave-einstein-yi1wb"
-            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-          ></iframe>
+          {isCodeActive && (
+            <iframe
+              src="https://codesandbox.io/embed/gifted-tesla-te4vz?fontsize=14&hidenavigation=1&theme=dark&view=editor"
+              style={{
+                minWidth: 600,
+                margin: '0 auto',
+                height: 500,
+                border: 0,
+                borderRadius: 35,
+                overflow: 'hidden',
+              }}
+              title="brave-einstein-yi1wb"
+              allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+              sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+            ></iframe>
+          )}
         </div>
         <div style={{ display: 'flex', marginBottom: '2rem' }}>
           <div className="card">
@@ -140,7 +145,11 @@ const App = () => {
                   }}
                 >
                   {activeColors.map(({ background, height }) => (
-                    <DragItem element="tr" key={background}>
+                    <DragItem
+                      element="tr"
+                      key={`${background}+table-example`}
+                      itemKey={`${background}+table-example`}
+                    >
                       <td>{background}</td>
                       <td>{height}</td>
                     </DragItem>
@@ -149,20 +158,22 @@ const App = () => {
               </tbody>
             </table>
           </div>
-          <iframe
-            src="https://codesandbox.io/embed/nostalgic-platform-np394?fontsize=14&hidenavigation=1&theme=dark&view=editor"
-            style={{
-              minWidth: 600,
-              margin: '0 auto',
-              height: 500,
-              border: 0,
-              borderRadius: 35,
-              overflow: 'hidden',
-            }}
-            title="brave-einstein-yi1wb"
-            allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-            sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-          ></iframe>
+          {isCodeActive && (
+            <iframe
+              src="https://codesandbox.io/embed/nostalgic-platform-np394?fontsize=14&hidenavigation=1&theme=dark&view=editor"
+              style={{
+                minWidth: 600,
+                margin: '0 auto',
+                height: 500,
+                border: 0,
+                borderRadius: 35,
+                overflow: 'hidden',
+              }}
+              title="brave-einstein-yi1wb"
+              allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+              sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+            ></iframe>
+          )}
         </div>
       </main>
     </div>
