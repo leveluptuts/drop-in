@@ -10,3 +10,5 @@ export const DragItem: React.FC<ItemProps> = ({
   itemKey,
   element = 'div',
 }) => <React.Fragment key={itemKey}>{children}</React.Fragment>;
+
+// This component exists simply to pass props down to the children

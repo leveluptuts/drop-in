@@ -47,7 +47,10 @@ const App = () => {
     });
   };
   return (
-    <div className="wrapper" style={{ background: `url(${clouds.default})` }}>
+    <div
+      className="wrapper"
+      style={{ background: `url(${clouds.default})`, backgroundSize: 'cover' }}
+    >
       <header>
         <h1>
           Drop

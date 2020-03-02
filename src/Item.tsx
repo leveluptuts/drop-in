@@ -9,6 +9,7 @@ interface Position {
 }
 
 // TODO write proper types
+// I'm so so sorry for the `any`s
 type Props = {
   i: number;
   moveItem: any;
@@ -19,6 +20,30 @@ type Props = {
   whileTap: object;
   style: object;
   dragElastic: number;
+  motionPreset: 'tight' | 'wave';
+};
+
+const presets = {
+  default: {
+    type: 'spring',
+    damping: 10,
+    stiffness: 100,
+  },
+  tight: {
+    type: 'spring',
+    damping: 200,
+    stiffness: 400,
+  },
+  slow: {
+    type: 'spring',
+    damping: 100,
+    stiffness: 100,
+  },
+  wave: {
+    type: 'spring',
+    damping: 1,
+    stiffness: 10,
+  },
 };
 
 export const Item: React.FC<Props> = ({
@@ -32,6 +57,7 @@ export const Item: React.FC<Props> = ({
   style,
   dragElastic,
   onDrop,
+  motionPreset,
 }) => {
   const [isDragging, setDragging] = useState(false);
 
@@ -61,10 +87,6 @@ export const Item: React.FC<Props> = ({
       whileHover={whileHover}
       whileTap={whileTap}
       drag="y"
-      transition={{
-        stiffness: 10,
-        damping: 200,
-      }}
       dragOriginY={dragOriginY}
       dragConstraints={{ top: 0, bottom: 0 }}
       dragElastic={dragElastic}
@@ -82,11 +104,11 @@ export const Item: React.FC<Props> = ({
           // even though it's jumping around the DOM.
           dragOriginY.set(dragOriginY.get() + delta.y);
         }
-
+        const transition = isDragging ? false : presets[motionPreset];
         // If `positionTransition` is a function and returns `false`, it's telling
         // Motion not to animate from its old position into its new one. If we're
         // dragging, we don't want any animation to occur.
-        return !isDragging;
+        return transition;
       }}
     >
       {children}

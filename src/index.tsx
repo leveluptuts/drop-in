@@ -16,6 +16,7 @@ type DropInProps = {
   whileHover?: object;
   whileTap?: object;
   dragElastic?: number;
+  motionPreset?: 'tight' | 'wave';
 };
 
 export const DropIn = ({
@@ -25,6 +26,7 @@ export const DropIn = ({
   whileHover = { scale: 1.03 },
   whileTap = { scale: 1.12 },
   dragElastic = 1,
+  motionPreset = 'tight',
 }: DropInProps) => {
   const [newChildren, setNewChildren] = useState(children);
   const [newData, setNewData] = useState(data);
@@ -58,14 +60,15 @@ export const DropIn = ({
         <Item
           dragElastic={dragElastic}
           element={child.props?.element || 'div'}
-          style={child.props?.style || {}}
-          key={child.key}
           i={i}
-          setPosition={setPosition}
+          key={child.key}
+          motionPreset={motionPreset}
           moveItem={moveItem}
+          onDrop={() => onDrop(newData)}
+          setPosition={setPosition}
+          style={child.props?.style || {}}
           whileHover={whileHover}
           whileTap={whileTap}
-          onDrop={() => onDrop(newData)}
         >
           {child}
         </Item>
