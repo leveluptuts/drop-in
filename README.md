@@ -23,13 +23,17 @@ yarn add @leveluptuts/drop-in
 ```jsx
 import { DropIn, DragItem } from '@leveluptuts/drop-in';
 
-<DropIn data={data}>
-  {activeColors.map(({ background, height }) => (
-    <DragItem key={background}>
-      <Square background={background} height={height} />
-    </DragItem>
-  ))}
-</DropIn>;
+function Component() {
+  return (
+    <DropIn data={data}>
+      {activeColors.map(({ background, height }) => (
+        <DragItem key={background}>
+          <Square background={background} height={height} />
+        </DragItem>
+      ))}
+    </DropIn>
+  );
+}
 ```
 
 ### More options
@@ -37,13 +41,17 @@ import { DropIn, DragItem } from '@leveluptuts/drop-in';
 ```jsx
 import { DropIn, DragItem } from '@leveluptuts/drop-in';
 
-<DropIn data={data} whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.04 }}>
-  {activeColors.map(({ background, height }) => (
-    <DragItem key={background}>
-      <Square background={background} height={height} />
-    </DragItem>
-  ))}
-</DropIn>;
+function Component() {
+  return (
+    <DropIn data={data} whileHover={{ scale: 1.02 }} whileTap={{ scale: 1.04 }}>
+      {activeColors.map(({ background, height }) => (
+        <DragItem key={background}>
+          <Square background={background} height={height} />
+        </DragItem>
+      ))}
+    </DropIn>
+  );
+}
 ```
 
 ## API

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -16,7 +16,9 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "@popmotion/popcorn": "^0.4.4",
+    "framer-motion": "^1.8.4"
   },
   "husky": {
     "hooks": {
@@ -51,8 +53,6 @@
     "typescript": "^3.8.2"
   },
   "dependencies": {
-    "@popmotion/popcorn": "^0.4.4",
-    "array-move": "^2.2.1",
-    "framer-motion": "^1.8.4"
+    "array-move": "^2.2.1"
   }
 }
