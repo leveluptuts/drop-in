@@ -4,7 +4,7 @@
 
 ![Jaws Aaron Homoki](https://media.giphy.com/media/kXkLDDRVOPKcU/source.gif)
 
-[![NPM](https://img.shields.io/npm/v/@leveluptuts/fresh?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/fresh)
+[![NPM](https://img.shields.io/npm/v/@leveluptuts/drop-in?color=82d8d8&logoColor=524763&style=for-the-badge)](https://www.npmjs.com/package/@leveluptuts/drop-in)
 
 ## Demo
 
