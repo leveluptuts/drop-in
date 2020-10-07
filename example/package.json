@@ -8,6 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "framer-motion": "^2.7.7",
+    "popmotion": "^9.0.0-rc.20",
     "react-app-polyfill": "^1.0.0"
   },
   "alias": {

@@ -6,6 +6,7 @@ export const onTop = {
     damping: 200,
   },
 };
+
 export const flat = {
   zIndex: 0,
   transition: { delay: 0.3, stiffness: 10, damping: 200 },
