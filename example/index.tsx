@@ -61,7 +61,10 @@ const App = () => {
       <main>
         <div style={{ display: 'flex', marginBottom: '2rem' }}>
           <div className="card">
-            <DropIn data={activeColors}>
+            <DropIn
+              data={activeColors}
+              onDrop={newData => console.log(newData)}
+            >
               {activeColors.map(({ background, height }) => (
                 <DragItem key={background} itemKey={background}>
                   <Square background={background} height={height} />

@@ -18,11 +18,14 @@ export const DropIn = ({
   children,
   data,
   whileHover = { scale: 1.03 },
-  whileTap = { scale: 1.12 },
+  whileTap = { scale: 1.05 },
   dragElastic = 1,
   motionPreset = 'tight',
 }: DropInProps) => {
-  const [order, updatePosition, updateOrder] = usePositionReorder(children);
+  const [order, updatePosition, updateOrder, newData] = usePositionReorder(
+    children,
+    data
+  );
   return (
     <>
       {order.map((child: any, i: any) => (
@@ -34,7 +37,7 @@ export const DropIn = ({
           motionPreset={motionPreset}
           updatePosition={updatePosition}
           updateOrder={updateOrder}
-          onDrop={() => onDrop(order)}
+          onDrop={() => onDrop(newData)}
           style={child.props?.style || {}}
           whileHover={whileHover}
           whileTap={whileTap}
