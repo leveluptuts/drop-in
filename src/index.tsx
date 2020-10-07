@@ -22,7 +22,6 @@ export const DropIn = ({
   dragElastic = 1,
   motionPreset = 'tight',
 }: DropInProps) => {
-  console.log(data);
   const [order, updatePosition, updateOrder] = usePositionReorder(children);
   return (
     <>
